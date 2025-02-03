@@ -15,7 +15,7 @@ const Home = () => {
         <h1 className="text-xl lg:text-3xl font-bold text-center text-neutral-600 max-w-[480px]">
         Learn practice and master programming languages with Prolingo.
         </h1>
-        <div>
+        <div className="flex flex-col items-center gap-y-3 max-w-[330px] w-full">
             <ClerkLoading>
                 <Loader className="h-5 w-5 text-muted-foreground animate-spin"/>
             </ClerkLoading>
