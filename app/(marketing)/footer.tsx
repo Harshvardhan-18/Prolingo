@@ -13,7 +13,7 @@ export const Footer = () => {
                     C++
                 </Button>
                 <Button size="lg" variant="ghost" className="w-full">
-                    <Image src="/python.webp" alt="C" height={32} width={40} className="mr-4 rounded-md"/>
+                    <Image src="/python.svg" alt="C" height={32} width={50} className="mr-4 rounded-md"/>
                     Python
                 </Button>
                 <Button size="lg" variant="ghost" className="w-full">

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 import { SidebarItem } from "./sidebar-item";
 
@@ -15,6 +16,7 @@ const Sidebar = ({className}:Props) => {
         <Link href="/learn">
         
         <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
+            <Image alt="Logo" src="/mascot.svg" width={32} height={32}/>
                     <h1 className="text-2xl font-extrabold text-green-600 tracking-wide">Prolingo</h1>
 
         </div>
