@@ -8,8 +8,8 @@ export const Header = () => {
         <header className="h-20 w-full border-b-2 border-slate-200 px-4">
             <div className="lg:max-w-screen-lg mx-auto flex items-center justify-between h-full">
                 <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
-                    <Image alt="Logo" src="/mascot.svg" width={35} height={35}/>
-                    <h1 className="text-2xl font-extrabold text-green-600 tracking-wide">Prolingo</h1>
+                    <Image alt="Logo" src="/logo.png" width={65} height={65}/>
+                    <h1 className="text-3xl  font-extrabold text-green-600 tracking-wide">Prolingo</h1>
 
                 </div>
             <ClerkLoading>
