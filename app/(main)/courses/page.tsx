@@ -1,9 +1,19 @@
 import { getCourses } from "@/db/queries";
 import { List } from "./list";
+import { getUserProgress } from "@/db/queries";
 
 
 const CoursesPage= async()=>{
-    const courses=await getCourses();
+    const coursesData=await getCourses();
+    const userProgressData=await getUserProgress();
+
+    const [
+        courses,
+        userProgress,
+    ] =await Promise.all([
+        coursesData,
+        userProgressData
+    ])
 
     return(
         <div className="h-full max-w-[912px] mx-auto">
@@ -12,7 +22,7 @@ const CoursesPage= async()=>{
            </h1>
            <List 
            courses={courses}
-           activeCourseId={1}/>
+           activeCourseId={userProgress?.activeCourseId}/>
         </div>
     )
 }
