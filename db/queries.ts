@@ -34,9 +34,10 @@ export const   getCourseById=cache(async(courseId:number)=>{
 })
 
     export const getUnits=cache(async()=>{
+        const {userId}=await auth();
         const userProgress=await getUserProgress();
 
-        if(!userProgress?.activeCourseId){
+        if(!userId || !userProgress?.activeCourseId){
             return[];
         }
         const data=await db.query.units.findMany({
@@ -46,7 +47,9 @@ export const   getCourseById=cache(async(courseId:number)=>{
                     with:{
                         challenges:{
                             with:{
-                                challengeProgress:true,
+                                challengeProgress:{
+                                    where:eq(challengeProgress.userId,userId)
+                                }
                             }
                         }
                     }
