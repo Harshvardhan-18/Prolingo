@@ -12,12 +12,17 @@ const main=async()=>{
         console.log("Seeding database")
         await db.delete(schema.courses);
         await db.delete(schema.userProgress);
+        await db.delete(schema.units);
+        await db.delete(schema.lessons);
+        await db.delete(schema.challenges);
+        await db.delete(schema.challengeOptions);
+        await db.delete(schema.challengeProgress);
 
         await db.insert(schema.courses).values([
             {
                 id:1,
-                title:"Python",
-                imageSrc:"/python.svg"
+                title:"C++",
+                imageSrc:"/C++.png"
             },
             {
                 id:2,
@@ -26,8 +31,8 @@ const main=async()=>{
             },
             {
                 id:3,
-                title:"C++",
-                imageSrc:"/C++.png"
+                title:"Python",
+                imageSrc:"/python.svg"
             },
             {
                 id:4,
@@ -39,7 +44,65 @@ const main=async()=>{
                 title:"Java",
                 imageSrc:"/java.png"
             }
-        ])
+        ]);
+        await db.insert(schema.units).values([
+            {
+                id:1,
+                courseId:1,
+                title:"Unit 1",
+                description:"Learn the basics of C++",
+                order:1,
+            }
+        ]);
+        await db.insert(schema.lessons).values([
+            {
+                id:1,
+                unitId:1,
+                title:"Syntax",
+                order:1,
+            },
+            {
+                id:2,
+                unitId:1,
+                title:"Statements",
+                order:2,
+            }
+        ]);
+        await db.insert(schema.challenges).values([
+            {
+                id:1,
+                lessonId:1,
+                type:"SELECT",
+                order:1,
+                question:"Which syntax is correct",
+            }
+        ]);
+        await db.insert(schema.challengeOptions).values([
+            {
+                id:1,
+                challengeId:1,
+                imageSrc:"/library_c.png",
+                correct:true,
+                text:"1",
+                audioSrc:"/es_man.mp3"
+            },
+            {
+                id:2,
+                challengeId:1,
+                imageSrc:"/library_w.png",
+                correct:false,
+                text:"2",
+                audioSrc:"/es_woman.mp3 "
+            },
+            {
+                id:3,
+                challengeId:1,
+                imageSrc:"/library_w.png",
+                correct:false,
+                text:"3",
+                audioSrc:"/es_woman.mp3 "
+            },
+        ]);
 
         console.log("Seeding finished");
     }catch(error){
