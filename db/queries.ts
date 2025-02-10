@@ -26,7 +26,7 @@ export const getCourses=cache(async()=>{
     return data;
 })
 
-export const   getCourseById=cache(async(courseId:number)=>{
+export const getCourseById=cache(async(courseId:number)=>{
     const data=await db.query.courses.findFirst({
         where:eq(courses.id,courseId),
     })
@@ -58,6 +58,9 @@ export const   getCourseById=cache(async(courseId:number)=>{
         })
         const normalizedData=data.map((unit)=>{
             const lessonsWithCompletedStatus=unit.lessons.map((lesson)=>{
+                if(lesson.challenges.length===0){
+                    return {...lesson,completed:false};      
+                }
                 const allCompletedChallenges=lesson.challenges.every((challenge)=>{
                     return challenge.challengeProgress && challenge.challengeProgress.length>0 && challenge.challengeProgress.every((progress)=>progress.completed);
                 });
