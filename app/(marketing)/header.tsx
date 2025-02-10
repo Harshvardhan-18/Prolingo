@@ -17,7 +17,13 @@ export const Header = () => {
             </ClerkLoading>
             <ClerkLoaded>
                 <SignedIn>
-                    <UserButton/>
+                <UserButton
+            appearance={{
+              elements: {
+                avatarBox: "w-10 h-10",
+              },
+            }}
+          />
                 </SignedIn>
                 <SignedOut>
                 <SignInButton
