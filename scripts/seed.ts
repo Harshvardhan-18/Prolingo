@@ -108,7 +108,7 @@ const main=async()=>{
                 imageSrc:"/library_c.png",
                 correct:true,
                 text:"1",
-                audioSrc:"/es_man.mp3"
+                audioSrc:"/es_boy.mp3"
             },
             {
                 id:2,
@@ -116,7 +116,7 @@ const main=async()=>{
                 imageSrc:"/library_w.png",
                 correct:false,
                 text:"2",
-                audioSrc:"/es_woman.mp3 "
+                audioSrc:"/es_boy.mp3 "
             },
             {
                 id:3,
@@ -124,7 +124,7 @@ const main=async()=>{
                 imageSrc:"/library_w.png",
                 correct:false,
                 text:"3",
-                audioSrc:"/es_woman.mp3 "
+                audioSrc:"/es_boy.mp3 "
             },
         ]);
 

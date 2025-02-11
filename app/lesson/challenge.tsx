@@ -11,7 +11,7 @@ type Props={
 
 }
 export const Challenge=({options,status,selectedOption,disabled,
-    type
+    type,onSelect
 }:Props)=>{
     return(
         <div className={cn(
