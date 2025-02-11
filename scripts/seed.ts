@@ -98,7 +98,7 @@ const main=async()=>{
                 lessonId:1,
                 type:"SELECT",
                 order:1,
-                question:"Which syntax is correct",
+                question:"Which of the following syntax is correct?",
             }
         ]);
         await db.insert(schema.challengeOptions).values([
