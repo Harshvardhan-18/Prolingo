@@ -113,6 +113,27 @@ const main=async()=>{
                 type:"SELECT",
                 order:3,
                 question:"Test question 3?",
+            },
+            {
+                id:4,
+                lessonId:2,
+                type:"SELECT",
+                order:1,
+                question:"Which of the following syntax is correct?",
+            },
+            {
+                id:5,
+                lessonId:2,
+                type:"ASSIST",
+                order:2,
+                question:"Test question 2?",
+            },
+            {
+                id:6,
+                lessonId:2,
+                type:"SELECT",
+                order:3,
+                question:"Test question 3?",
             }
         ]);
         await db.insert(schema.challengeOptions).values([
