@@ -99,11 +99,24 @@ const main=async()=>{
                 type:"SELECT",
                 order:1,
                 question:"Which of the following syntax is correct?",
+            },
+            {
+                id:2,
+                lessonId:1,
+                type:"ASSIST",
+                order:2,
+                question:"Test question 2?",
+            },
+            {
+                id:3,
+                lessonId:1,
+                type:"SELECT",
+                order:3,
+                question:"Test question 3?",
             }
         ]);
         await db.insert(schema.challengeOptions).values([
             {
-                id:1,
                 challengeId:1,
                 imageSrc:"/library_c.png",
                 correct:true,
@@ -111,7 +124,6 @@ const main=async()=>{
                 audioSrc:"/es_boy.mp3"
             },
             {
-                id:2,
                 challengeId:1,
                 imageSrc:"/library_w.png",
                 correct:false,
@@ -119,11 +131,49 @@ const main=async()=>{
                 audioSrc:"/es_boy.mp3 "
             },
             {
-                id:3,
                 challengeId:1,
                 imageSrc:"/library_w.png",
                 correct:false,
                 text:"3",
+                audioSrc:"/es_boy.mp3 "
+            },
+            {
+                challengeId:2,
+                correct:true,
+                text:"1",
+                audioSrc:"/es_boy.mp3"
+            },
+            {
+                challengeId:2,
+                correct:false,
+                text:"2",
+                audioSrc:"/es_boy.mp3 "
+            },
+            {
+                challengeId:2,
+                correct:false,
+                text:"3",
+                audioSrc:"/es_boy.mp3 "
+            },
+            {
+                challengeId:3,
+                imageSrc:"/library_c.png",
+                correct:false,
+                text:"1",
+                audioSrc:"/es_boy.mp3"
+            },
+            {
+                challengeId:3,
+                imageSrc:"/library_w.png",
+                correct:false,
+                text:"2",
+                audioSrc:"/es_boy.mp3 "
+            },
+            {
+                challengeId:3,
+                imageSrc:"/library_w.png",
+                correct:true,
+                text:"3(correct)",
                 audioSrc:"/es_boy.mp3 "
             },
         ]);
