@@ -104,7 +104,7 @@ export const getCourseProgress=cache(async()=>{
             return !challenge.challengeProgress || challenge.challengeProgress.length===0 || challenge.challengeProgress.some((progress)=>progress.completed===false);
         })
     })
-    return {activeLessson:firstUncompletedLesson,
+    return {activeLesson:firstUncompletedLesson,
     activeLessonId:firstUncompletedLesson?.id,}
 });
 export const getLesson=cache(async(id?:number)=>{

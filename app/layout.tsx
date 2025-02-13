@@ -6,6 +6,7 @@ import "./globals.css";
 import { ExitModal } from "@/components/modals/exit-modal";
 import { HeartsModal } from "@/components/modals/hearts-modal";
 import { PracticeModal } from "@/components/modals/practice-modal";
+import { ThemeProvider } from "next-themes";
 
 const font = Nunito({
   subsets: ["latin"],
@@ -25,15 +26,22 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${font.className} antialiased`}
+        >
+          <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
         >
           <Toaster/>
           <ExitModal></ExitModal>
           <HeartsModal></HeartsModal>
           <PracticeModal></PracticeModal>
         {children}
+        </ThemeProvider>
       </body>
     </html>
        </ClerkProvider>

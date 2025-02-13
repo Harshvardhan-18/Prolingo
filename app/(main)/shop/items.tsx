@@ -19,7 +19,7 @@ export const Items=({hasActiveSubscription,hearts,points}:Props)=>{
             return;
         }
         startTransition(()=>{
-            refillHearts().catch(()=>toast.error("Something went wrong");
+            refillHearts().catch(()=>toast.error("Something went wrong")
             )
         })
     }

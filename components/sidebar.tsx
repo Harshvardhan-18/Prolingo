@@ -31,14 +31,14 @@ const Sidebar = ({ className }: Props) => {
         <SidebarItem
           label="leaderboard"
           href="/leaderboard"
-          iconSrc="/trophy.svg"
+          iconSrc="/leaderboard.svg"
         />
         <SidebarItem
           label="quests"
           href="/quests"
-          iconSrc="/target-arrow.svg"
+          iconSrc="/quests.svg"
         />
-        <SidebarItem label="shop" href="/shop" iconSrc="/shopping-bag.svg" />
+        <SidebarItem label="shop" href="/shop" iconSrc="/shop.svg" />
       </div>
       <div className="p-4">
         <ClerkLoading>
