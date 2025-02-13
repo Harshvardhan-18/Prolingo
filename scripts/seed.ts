@@ -119,7 +119,7 @@ const main=async()=>{
                 lessonId:2,
                 type:"SELECT",
                 order:1,
-                question:"Which of the following syntax is correct?",
+                question:"Which of the  syntax is correct?",
             },
             {
                 id:5,
