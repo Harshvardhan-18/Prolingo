@@ -17,7 +17,7 @@
  };
 
 
- export const Unit=({id,order,title,description,lessons,activeLesson,activeLessonPercentage}:Props)=>{
+ export const Unit=({title,description,lessons,activeLesson,activeLessonPercentage}:Props)=>{
     return(
         <>
         <UnitBanner

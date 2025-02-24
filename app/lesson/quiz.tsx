@@ -41,8 +41,8 @@ export const Quiz = ({initialHearts,initialLessonChallenges,initialLessonId,init
     });
     const [finishAudio]=useAudio({src:"/finish.mp3",autoPlay:true});
     const Router=useRouter();
-    const [correctAudio,_c,correctControls]=useAudio({src:"/correct.mp3"});
-    const [incorrectAudio,_i,IncorrectControls]=useAudio({src:"/incorrect.mp3"});
+    const [correctAudio,,correctControls]=useAudio({src:"/correct.mp3"});
+    const [incorrectAudio,,IncorrectControls]=useAudio({src:"/incorrect.mp3"});
     const [lessonId, setLessonId] = useState(initialLessonId);
 
 useEffect(() => {

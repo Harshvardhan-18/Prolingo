@@ -1,4 +1,4 @@
-import { BooleanField, Datagrid, List, NumberField, NumberInput, ReferenceField, SelectField, TextField } from "react-admin"
+import { BooleanField, Datagrid, List, NumberField, ReferenceField, TextField } from "react-admin"
 
 
 export const ChallengeOptionList = () => {

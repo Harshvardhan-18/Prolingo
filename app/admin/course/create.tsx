@@ -1,4 +1,4 @@
-import { Create, Datagrid, List, required, SimpleForm, TextInput } from "react-admin"
+import { Create, required, SimpleForm, TextInput } from "react-admin"
 
 
 export const CourseCreate = () => {

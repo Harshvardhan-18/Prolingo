@@ -1,4 +1,4 @@
-import { Create, Datagrid, Edit, List, NumberInput, ReferenceInput, required, SelectInput, SimpleForm, TextInput } from "react-admin"
+import {Edit, NumberInput, ReferenceInput, required, SelectInput, SimpleForm, TextInput } from "react-admin"
 
 
 export const ChallengeEdit= () => {

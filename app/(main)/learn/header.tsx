@@ -9,7 +9,7 @@ type Props={
 import { useTheme } from 'next-themes';
 
 export const Header=({title}:Props)=>{
-    const {theme,_}=useTheme();
+    const {theme}=useTheme();
     return(
         <div className={cn("sticky top-0 bg-white pb-3 lg:pt-[28px] lg:mt-[-28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50",
             theme==="dark" && "sticky top-0 bg-[#020817] pb-3 lg:pt-[28px] lg:mt-[-28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50"

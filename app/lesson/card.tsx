@@ -18,8 +18,8 @@ type Props={
 
 }
 
-export const Card = ({id,imageSrc,audioSrc,shortcut,selected,disabled,onClick,status,text,type}:Props) => {
-  const [audio, _,controls]=useAudio({src: audioSrc || ""})
+export const Card = ({imageSrc,audioSrc,shortcut,selected,disabled,onClick,status,text,type}:Props) => {
+  const [audio,,controls]=useAudio({src: audioSrc || ""})
   const handleClick=useCallback(()=>{
     if(disabled) return;
     controls.play();
