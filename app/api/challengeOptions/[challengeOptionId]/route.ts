@@ -6,14 +6,15 @@ import { challengeOptions } from "@/db/schema"
 
 export const GET = async (
     req: Request,
-    { params }: { params: { challengeOptionId: number } },
+    {params}:{ params:Promise <{ challengeOptionId: string }> },
 ) => {
     if (!isAdmin()) {
         return new NextResponse("Unauthorized", { status: 403 });
     }
 
+    const challengeOptionId = Number((await params).challengeOptionId);
     const data = await db.query.challengeOptions.findFirst({
-        where: eq(challengeOptions.id, params.challengeOptionId),
+        where: eq(challengeOptions.id, challengeOptionId),
     })
 
     return NextResponse.json(data);
@@ -22,16 +23,17 @@ export const GET = async (
 
 export const PUT = async (
     req: Request,
-    { params }: { params: { challengeOptionId: number } },
+    { params }: { params: Promise<{ challengeOptionId: string }> },
 ) => {
     if (!isAdmin()) {
         return new NextResponse("Unauthorized", { status: 403 });
     }
 
+    const challengeOptionId = Number((await params).challengeOptionId);
     const body = await req.json();
     const data = await db.update(challengeOptions).set({
         ...body
-    }).where(eq(challengeOptions.id, params.challengeOptionId)).returning();
+    }).where(eq(challengeOptions.id, challengeOptionId)).returning();
 
     return NextResponse.json(data[0]);
 
@@ -39,13 +41,14 @@ export const PUT = async (
 
 export const DELETE = async (
     req: Request,
-    { params }: { params: { challengeOptionId: number } },
+    { params }: { params: Promise<{ challengeOptionId: string }> },
 ) => {
     if (!isAdmin()) {
         return new NextResponse("Unauthorized", { status: 403 });
     }
 
-    const data = await db.delete(challengeOptions).where(eq(challengeOptions.id, params.challengeOptionId)).returning();
+    const challengeOptionId = Number((await params).challengeOptionId);
+    const data = await db.delete(challengeOptions).where(eq(challengeOptions.id, challengeOptionId)).returning();
 
     return NextResponse.json(data[0]);
 }

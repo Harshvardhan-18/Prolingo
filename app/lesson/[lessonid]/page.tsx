@@ -2,14 +2,9 @@ import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 import { Quiz } from "../quiz";
 import { redirect } from "next/navigation";
 
-type Props={
-  params:{
-    lessonId:number;
-  }
-}
 
-const LessonIdPage = async({params}:Props) => {
-  const lessonId = Number(params.lessonId); 
+const LessonIdPage = async({params}:{ params: Promise<{lessonId:string}> }) => {
+  const lessonId = Number((await params).lessonId);  
   console.log(lessonId);
   if (isNaN(lessonId)) {
     redirect("/learn");

@@ -6,14 +6,14 @@ import {courses} from "@/db/schema"
 
 export const GET = async (
     req: Request,
-        { params } : { params: { courseId: number } },
+        { params } : { params: Promise<{ courseId: number }> },
 ) => {
     if(!isAdmin()){
         return new NextResponse("Unauthorized", {status:403});
     }
 
     const data= await db.query.courses.findFirst({
-        where: eq(courses.id, params.courseId),
+        where: eq(courses.id, (await(params)).courseId),
     })
 
     return NextResponse.json(data);  
@@ -22,7 +22,7 @@ export const GET = async (
 
 export const PUT = async (
     req: Request,
-        { params } : { params: { courseId: number } },
+        { params } : { params: Promise<{ courseId: number }> },
 ) => {
     if(!isAdmin()){
         return new NextResponse("Unauthorized", {status:403});
@@ -31,7 +31,7 @@ export const PUT = async (
     const body = await req.json();
     const data= await db.update(courses).set({
         ...body
-    }).where(eq(courses.id, params.courseId)).returning();
+    }).where(eq(courses.id, (await(params)).courseId)).returning();
 
     return NextResponse.json(data[0]);  
 
@@ -39,13 +39,13 @@ export const PUT = async (
 
 export const DELETE = async (
     req: Request,
-        { params } : { params: { courseId: number } },
+        { params } : { params: Promise<{ courseId: number }> },
 ) => {
     if(!isAdmin()){
         return new NextResponse("Unauthorized", {status:403});
     }
 
-    const data= await db.delete(courses).where(eq(courses.id, params.courseId)).returning();
+    const data= await db.delete(courses).where(eq(courses.id, (await(params)).courseId)).returning();
 
     return NextResponse.json(data[0]);  
 }
